@@ -14,4 +14,4 @@ C:\repositorios\senac-programador-sistemas\login\obj\Debug\net8.0-windows\refint
 C:\repositorios\senac-programador-sistemas\login\obj\Debug\net8.0-windows\login.pdb
 C:\repositorios\senac-programador-sistemas\login\obj\Debug\net8.0-windows\login.genruntimeconfig.cache
 C:\repositorios\senac-programador-sistemas\login\obj\Debug\net8.0-windows\ref\login.dll
-C:\repositorios\senac-programador-sistemas\login\obj\Debug\net8.0-windows\login.FormLogin.resources
+C:\repositorios\senac-programador-sistemas\login\obj\Debug\net8.0-windows\login.form_login.resources

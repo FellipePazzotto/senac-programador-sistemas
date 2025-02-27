@@ -1,38 +1,38 @@
 namespace login
 {
-    public partial class FormLogin : Form
+    public partial class form_login : Form
     {
-        public FormLogin()
+        public form_login()
         {
             InitializeComponent();
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            string usuario = inputEmail.Text;
-            string senha = inputSenha.Text;
+            string usuario = input_email.Text;
+            string senha = input_senha.Text;
 
-            if (usuario == null || usuario == "")
+            if (string.IsNullOrWhiteSpace(usuario))
             {
-                labelResultado.Text = "O campo 'email' deve ser preenchido.";
-                labelResultado.ForeColor = Color.Orange;
+                label_resultado.Text = "O campo 'email' deve ser preenchido.";
+                label_resultado.ForeColor = Color.Orange;
             }
-            else if (senha == null || senha == "")
+            else if (string.IsNullOrWhiteSpace(senha))
             {
-                labelResultado.Text = "O campo 'senha' deve ser preenchido.";
-                labelResultado.ForeColor = Color.Orange;
+                label_resultado.Text = "O campo 'senha' deve ser preenchido.";
+                label_resultado.ForeColor = Color.Orange;
             }
             else
             {
                 if (usuario == "fellipe@gmail.com" && senha == "12345")
                 {
-                    labelResultado.Text = "Usuário logado.";
-                    labelResultado.ForeColor = Color.Orange;
+                    label_resultado.Text = "Usuário logado.";
+                    label_resultado.ForeColor = Color.Orange;
                 }
                 else
                 {
-                    labelResultado.Text = "Usuário e/ou senha incorretos.";
-                    labelResultado.ForeColor = Color.Orange;
+                    label_resultado.Text = "Usuário e/ou senha incorretos.";
+                    label_resultado.ForeColor = Color.Orange;
                 }
             }
         }
