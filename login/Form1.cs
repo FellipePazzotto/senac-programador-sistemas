@@ -55,7 +55,44 @@ namespace login
 
         private void button_cadastrar_Click(object sender, EventArgs e)
         {
+            bool usuario_encontrado = false;
+            string novo_usuario = input_email_cad.Text;
+            string nova_senha = input_senha_cad.Text;
 
+            for (int i = 0; i < lista_emails.Count; i++)
+            {
+                if (novo_usuario == lista_emails[i])
+                {
+                    usuario_encontrado = true;
+                }
+            }
+
+            if (string.IsNullOrWhiteSpace(novo_usuario))
+            {
+                label_resultado_cad.Text = "O campo 'cadastrar email' está vazio.";
+                label_resultado_cad.ForeColor = Color.Orange;
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(nova_senha))
+            {
+                label_resultado_cad.Text = "O campo 'cadastrar senha' está vazio.";
+                label_resultado_cad.ForeColor = Color.Orange;
+                return;
+            }
+
+            if (usuario_encontrado == false)
+            {
+                lista_emails.Add(novo_usuario);
+                lista_senhas.Add(nova_senha);
+                label_resultado_cad.Text = $"Usuário cadastrado com sucesso.";
+                label_resultado_cad.ForeColor = Color.Orange;
+            }
+            else
+            {
+                label_resultado_cad.Text = $"Usuário já cadastrado.";
+                label_resultado_cad.ForeColor = Color.Orange;
+            }
         }
     }
 }

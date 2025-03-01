@@ -95,7 +95,7 @@
             // 
             label_resultado_log.AutoSize = true;
             label_resultado_log.Font = new Font("Arial", 10F);
-            label_resultado_log.Location = new Point(128, 246);
+            label_resultado_log.Location = new Point(125, 246);
             label_resultado_log.Name = "label_resultado_log";
             label_resultado_log.Size = new Size(19, 16);
             label_resultado_log.TabIndex = 5;
