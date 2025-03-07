@@ -72,14 +72,14 @@ namespace login
                 return;
             }
 
-            if (nova_senha.Length < 9)
+            if (nova_senha.Length <= 9)
             {
                 label_resultado_senha.Text = "A senha deve conter mais de 8 caracteres.";
                 label_resultado_senha.ForeColor = Color.White;
                 return;
             }
 
-            if (!nova_senha.Any(char.IsPunctuation) || nova_senha.Any(char.IsSymbol))
+            if (!nova_senha.Any(char.IsPunctuation) && nova_senha.Any(char.IsSymbol) && !nova_senha.Contains("@"))
             {
                 label_resultado_senha.Text = "A senha deve conter um caracter especial.";
                 label_resultado_senha.ForeColor = Color.White;
@@ -100,7 +100,7 @@ namespace login
                 return;
             }
 
-            if (nova_senha.Contains(" "))
+            if (nova_senha.Any(char.IsWhiteSpace))
             {
                 label_resultado_senha.Text = "A senha não pode conter espaço.";
                 label_resultado_senha.ForeColor = Color.White;
@@ -121,13 +121,14 @@ namespace login
                 label_resultado_senha.Text = "";
                 label_resultado_cad.Text = "Usuário cadastrado com sucesso.";
                 label_resultado_cad.ForeColor = Color.Orange;
+                return;
             }
-            else
-            {
-                label_resultado_senha.Text = "";
-                label_resultado_cad.Text = "Usuário já cadastrado.";
-                label_resultado_cad.ForeColor = Color.Orange;
-            }
+
+            label_resultado_senha.Text = "";
+            label_resultado_cad.Text = "Usuário já cadastrado.";
+            label_resultado_cad.ForeColor = Color.Orange;
+            input_email_cad.Clear();
+            input_senha_cad.Clear();
         }
     }
 }
