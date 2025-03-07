@@ -40,6 +40,7 @@
             label_senha_cad = new Label();
             button_cadastrar = new Button();
             label_resultado_cad = new Label();
+            label_resultado_senha = new Label();
             SuspendLayout();
             // 
             // input_email_log
@@ -160,12 +161,21 @@
             label_resultado_cad.TabIndex = 11;
             label_resultado_cad.Text = "...";
             // 
+            // label_resultado_senha
+            // 
+            label_resultado_senha.AutoSize = true;
+            label_resultado_senha.Location = new Point(490, 217);
+            label_resultado_senha.Name = "label_resultado_senha";
+            label_resultado_senha.Size = new Size(0, 15);
+            label_resultado_senha.TabIndex = 12;
+            // 
             // form_login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Highlight;
             ClientSize = new Size(834, 411);
+            Controls.Add(label_resultado_senha);
             Controls.Add(label_resultado_cad);
             Controls.Add(button_cadastrar);
             Controls.Add(label_senha_cad);
@@ -199,5 +209,6 @@
         private Label label_senha_cad;
         private Button button_cadastrar;
         private Label label_resultado_cad;
+        private Label label_resultado_senha;
     }
 }
