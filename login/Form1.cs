@@ -133,7 +133,7 @@ namespace login
             }
 
             label_resultado_senha.Text = "";
-            label_resultado_cad.Text = "Usuário já cadastrado.";
+            label_resultado_cad.Text = "Usuário cadastrado com sucesso.";
             label_resultado_cad.ForeColor = Color.Orange;
             input_email_cad.Clear();
             input_senha_cad.Clear();
