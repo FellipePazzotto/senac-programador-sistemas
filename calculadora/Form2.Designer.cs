@@ -39,15 +39,13 @@
             radio_perimetro = new RadioButton();
             radio_area = new RadioButton();
             radio_volume = new RadioButton();
-            input_numero_c = new TextBox();
-            input_numero_d = new TextBox();
             button_trocar = new Button();
             SuspendLayout();
             // 
             // label_erro
             // 
             label_erro.AutoSize = true;
-            label_erro.Location = new Point(35, 90);
+            label_erro.Location = new Point(35, 70);
             label_erro.Name = "label_erro";
             label_erro.Size = new Size(0, 15);
             label_erro.TabIndex = 23;
@@ -56,7 +54,7 @@
             // 
             label_resultado.AutoSize = true;
             label_resultado.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label_resultado.Location = new Point(200, 46);
+            label_resultado.Location = new Point(200, 37);
             label_resultado.Name = "label_resultado";
             label_resultado.Size = new Size(52, 25);
             label_resultado.TabIndex = 22;
@@ -65,7 +63,7 @@
             // label_b
             // 
             label_b.AutoSize = true;
-            label_b.Location = new Point(180, 50);
+            label_b.Location = new Point(180, 45);
             label_b.Name = "label_b";
             label_b.Size = new Size(15, 15);
             label_b.TabIndex = 21;
@@ -74,21 +72,21 @@
             // label_sinal
             // 
             label_sinal.AutoSize = true;
-            label_sinal.Location = new Point(97, 50);
+            label_sinal.Location = new Point(97, 45);
             label_sinal.Name = "label_sinal";
             label_sinal.Size = new Size(0, 15);
             label_sinal.TabIndex = 20;
             // 
             // input_numero_b
             // 
-            input_numero_b.Location = new Point(120, 30);
+            input_numero_b.Location = new Point(120, 40);
             input_numero_b.Name = "input_numero_b";
             input_numero_b.Size = new Size(50, 23);
             input_numero_b.TabIndex = 19;
             // 
             // input_numero_a
             // 
-            input_numero_a.Location = new Point(35, 30);
+            input_numero_a.Location = new Point(35, 40);
             input_numero_a.Name = "input_numero_a";
             input_numero_a.Size = new Size(50, 23);
             input_numero_a.TabIndex = 18;
@@ -96,7 +94,7 @@
             // button_calcular
             // 
             button_calcular.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button_calcular.Location = new Point(160, 155);
+            button_calcular.Location = new Point(160, 140);
             button_calcular.Name = "button_calcular";
             button_calcular.Size = new Size(90, 40);
             button_calcular.TabIndex = 17;
@@ -107,18 +105,19 @@
             // button_limpar
             // 
             button_limpar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button_limpar.Location = new Point(160, 110);
+            button_limpar.Location = new Point(160, 95);
             button_limpar.Name = "button_limpar";
             button_limpar.Size = new Size(90, 40);
             button_limpar.TabIndex = 16;
             button_limpar.Text = "Limpar";
             button_limpar.UseVisualStyleBackColor = true;
+            button_limpar.Click += button_limpar_Click;
             // 
             // radio_perimetro
             // 
             radio_perimetro.AutoSize = true;
             radio_perimetro.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radio_perimetro.Location = new Point(35, 115);
+            radio_perimetro.Location = new Point(35, 100);
             radio_perimetro.Name = "radio_perimetro";
             radio_perimetro.Size = new Size(83, 21);
             radio_perimetro.TabIndex = 24;
@@ -131,19 +130,20 @@
             // 
             radio_area.AutoSize = true;
             radio_area.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radio_area.Location = new Point(35, 140);
+            radio_area.Location = new Point(35, 125);
             radio_area.Name = "radio_area";
             radio_area.Size = new Size(53, 21);
             radio_area.TabIndex = 25;
             radio_area.TabStop = true;
             radio_area.Text = "Área";
             radio_area.UseVisualStyleBackColor = true;
+            radio_area.CheckedChanged += radio_area_CheckedChanged;
             // 
             // radio_volume
             // 
             radio_volume.AutoSize = true;
             radio_volume.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radio_volume.Location = new Point(35, 165);
+            radio_volume.Location = new Point(35, 150);
             radio_volume.Name = "radio_volume";
             radio_volume.Size = new Size(69, 21);
             radio_volume.TabIndex = 26;
@@ -152,23 +152,9 @@
             radio_volume.UseVisualStyleBackColor = true;
             radio_volume.CheckedChanged += radio_volume_CheckedChanged;
             // 
-            // input_numero_c
-            // 
-            input_numero_c.Location = new Point(35, 60);
-            input_numero_c.Name = "input_numero_c";
-            input_numero_c.Size = new Size(50, 23);
-            input_numero_c.TabIndex = 27;
-            // 
-            // input_numero_d
-            // 
-            input_numero_d.Location = new Point(120, 60);
-            input_numero_d.Name = "input_numero_d";
-            input_numero_d.Size = new Size(50, 23);
-            input_numero_d.TabIndex = 28;
-            // 
             // button_trocar
             // 
-            button_trocar.Location = new Point(70, 205);
+            button_trocar.Location = new Point(70, 202);
             button_trocar.Name = "button_trocar";
             button_trocar.Size = new Size(150, 23);
             button_trocar.TabIndex = 29;
@@ -181,10 +167,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
-            ClientSize = new Size(284, 241);
+            ClientSize = new Size(284, 251);
             Controls.Add(button_trocar);
-            Controls.Add(input_numero_d);
-            Controls.Add(input_numero_c);
             Controls.Add(radio_volume);
             Controls.Add(radio_area);
             Controls.Add(radio_perimetro);
@@ -197,7 +181,7 @@
             Controls.Add(button_calcular);
             Controls.Add(button_limpar);
             Name = "calculadora_2";
-            Text = "Calculadora";
+            Text = "Calculadora de quadrados";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -215,8 +199,6 @@
         private RadioButton radio_perimetro;
         private RadioButton radio_area;
         private RadioButton radio_volume;
-        private TextBox input_numero_c;
-        private TextBox input_numero_d;
         private Button button_trocar;
     }
 }

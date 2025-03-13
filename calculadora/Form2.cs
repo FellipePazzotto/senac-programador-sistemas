@@ -15,37 +15,36 @@ namespace calculadora
         public calculadora_2()
         {
             InitializeComponent();
+
+            input_numero_b.Enabled = false;
+            input_numero_b.Text = input_numero_a.Text;
         }
 
         private void radio_perimetro_CheckedChanged(object sender, EventArgs e)
         {
-            label_sinal.Text = "+";
+            label_sinal.Text = "*";
+            input_numero_b.Text = "4";
         }
 
         private void radio_area_CheckedChanged(object sender, EventArgs e)
         {
             label_sinal.Text = "*";
-            input_numero_c.Enabled = false;
-            input_numero_d.Enabled = false;
+            input_numero_b.Text = $"{input_numero_a.Text}";
         }
 
         private void radio_volume_CheckedChanged(object sender, EventArgs e)
         {
             label_sinal.Text = "*";
-            input_numero_d.Enabled = false;
+            double a = Convert.ToDouble(input_numero_a.Text);
+            input_numero_b.Text = $"{a * a}";
         }
 
         private void button_calcular_Click(object sender, EventArgs e)
         {
             string numero_a_puro = input_numero_a.Text;
             string numero_b_puro = input_numero_b.Text;
-            string numero_c_puro = input_numero_c.Text;
-            string numero_d_puro = input_numero_d.Text;
 
             double numero_a = 0;
-            double numero_b = 0;
-            double numero_c = 0;
-            double numero_d = 0;
 
             if (string.IsNullOrWhiteSpace(numero_a_puro))
             {
@@ -53,31 +52,9 @@ namespace calculadora
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(numero_b_puro))
-            {
-                label_erro.Text = "Insira um valor no 2° campo.";
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(numero_c_puro))
-            {
-                label_erro.Text = "Insira um valor no 3° campo.";
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(numero_d_puro))
-            {
-                label_erro.Text = "Insira um valor no 4° campo.";
-                return;
-            }
-
-            if (numero_a_puro.All(char.IsNumber) && numero_b_puro.All(char.IsNumber)
-                && numero_c_puro.All(char.IsNumber) && numero_d_puro.All(char.IsNumber))
+            if (numero_a_puro.All(char.IsNumber))
             {
                 numero_a = Convert.ToDouble(input_numero_a.Text);
-                numero_b = Convert.ToDouble(input_numero_b.Text);
-                numero_c = Convert.ToDouble(input_numero_c.Text);
-                numero_d = Convert.ToDouble(input_numero_d.Text);
 
                 label_erro.Text = "";
             }
@@ -87,25 +64,44 @@ namespace calculadora
                 return;
             }
 
-            switch (label_sinal.Text)
+            if (Convert.ToDouble(numero_b_puro) == 4)
             {
-                case "+":
-                    label_resultado.Text = $"{numero_a + numero_b}";
-                    break;
-
-                case "*":
-                    label_resultado.Text = $"{numero_a - numero_b}";
-                    break;
-
-                case "":
-                    label_erro.Text = "Selecione uma operação.";
-                    break;
+                label_resultado.Text = $"{numero_a * 4}";
+                return;
             }
+
+            if (Convert.ToDouble(numero_b_puro) == Convert.ToDouble(numero_a_puro))
+            {
+                label_resultado.Text = $"{numero_a * numero_a}";
+                return;
+            }
+            
+            if (Convert.ToDouble(numero_b_puro) == Convert.ToDouble(numero_a_puro) * Convert.ToDouble(numero_a_puro))
+            {
+                label_resultado.Text = $"{numero_a * numero_a * numero_a}";
+                return;
+            }
+        }
+
+        private void button_limpar_Click(object sender, EventArgs e)
+        {
+            radio_perimetro.Checked = false;
+            radio_area.Checked = false;
+            radio_volume.Checked = false;
+
+            label_sinal.Text = "";
+            label_resultado.Text = "?????";
+            label_erro.Text = "";
+
+            input_numero_a.Clear();
+            input_numero_b.Clear();
         }
 
         private void button_trocar_Click(object sender, EventArgs e)
         {
-
+            Form form_1 = new calculadora_1();
+            this.Hide();
+            form_1.ShowDialog();
         }
     }
 }
