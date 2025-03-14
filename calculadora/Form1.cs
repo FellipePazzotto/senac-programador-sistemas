@@ -59,27 +59,30 @@ namespace calculadora
                 return;
             }
 
-            switch (label_sinal.Text)
+            if (radio_mais.Checked)
             {
-                case "+":
-                    label_resultado.Text = $"{numero_a + numero_b}";
-                    break;
-
-                case "-":
-                    label_resultado.Text = $"{numero_a - numero_b}";
-                    break;
-
-                case "*":
-                    label_resultado.Text = $"{numero_a * numero_b}";
-                    break;
-
-                case "/":
-                    label_resultado.Text = $"{numero_a / numero_b}";
-                    break;
-
-                case "":
-                    label_erro.Text = "Selecione uma operação.";
-                    break;
+                label_resultado.Text = $"{numero_a + numero_b}";
+                return;
+            }
+            else if (radio_menos.Checked)
+            {
+                label_resultado.Text = $"{numero_a - numero_b}";
+                return;
+            }
+            else if (radio_vezes.Checked)
+            {
+                label_resultado.Text = $"{numero_a * numero_b}";
+                return;
+            }
+            else if (radio_dividido.Checked)
+            {
+                label_resultado.Text = $"{numero_a / numero_b}";
+                return;
+            }
+            else
+            {
+                label_erro.Text = "Selecione uma operação.";
+                return;
             }
         }
 

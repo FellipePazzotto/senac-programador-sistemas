@@ -34,3 +34,4 @@ C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\
 C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\calculadora.pdb
 C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\calculadora.genruntimeconfig.cache
 C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\ref\calculadora.dll
+C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\calculadora.calculadora_3.resources
