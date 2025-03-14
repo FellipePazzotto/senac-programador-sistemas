@@ -21,8 +21,6 @@ C:\repositorios\senac-programador-sistemas\calculadora\bin\Debug\net8.0-windows\
 C:\repositorios\senac-programador-sistemas\calculadora\bin\Debug\net8.0-windows\calculadora.runtimeconfig.json
 C:\repositorios\senac-programador-sistemas\calculadora\bin\Debug\net8.0-windows\calculadora.dll
 C:\repositorios\senac-programador-sistemas\calculadora\bin\Debug\net8.0-windows\calculadora.pdb
-C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\calculadora.calculadora_1.resources
-C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\calculadora.calculadora_2.resources
 C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\calculadora.csproj.GenerateResource.cache
 C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\calculadora.GeneratedMSBuildEditorConfig.editorconfig
 C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\calculadora.AssemblyInfoInputs.cache
@@ -34,4 +32,6 @@ C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\
 C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\calculadora.pdb
 C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\calculadora.genruntimeconfig.cache
 C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\ref\calculadora.dll
-C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\calculadora.calculadora_3.resources
+C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\calculadora.calculadora_quadrilateros.resources
+C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\calculadora.calculadora_circunferencias.resources
+C:\repositorios\senac-programador-sistemas\calculadora\obj\Debug\net8.0-windows\calculadora.calculadora_padrao.resources

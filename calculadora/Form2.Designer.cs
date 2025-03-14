@@ -1,6 +1,6 @@
 ﻿namespace calculadora
 {
-    partial class calculadora_2
+    partial class calculadora_quadrilateros
     {
         /// <summary>
         /// Required designer variable.
@@ -43,7 +43,7 @@
             radio_volume_r = new RadioButton();
             radio_area_r = new RadioButton();
             radio_perimetro_r = new RadioButton();
-            label_erro_t = new Label();
+            label_erro_r = new Label();
             label_resultado_r = new Label();
             label_r_b = new Label();
             label_r_sinal_a = new Label();
@@ -54,7 +54,11 @@
             label_r_sinal_b = new Label();
             input_numero_r_c = new TextBox();
             button_calc_3 = new Button();
-            label_lado = new Label();
+            label_lado_a = new Label();
+            label_largura = new Label();
+            label_altura = new Label();
+            label_lado_b = new Label();
+            label_comprimento = new Label();
             SuspendLayout();
             // 
             // label_erro_q
@@ -126,7 +130,7 @@
             button_limpar_q.TabIndex = 16;
             button_limpar_q.Text = "Limpar";
             button_limpar_q.UseVisualStyleBackColor = true;
-            button_limpar_q.Click += button_limpar_Click;
+            button_limpar_q.Click += button_limpar_q_Click;
             // 
             // radio_perimetro_q
             // 
@@ -139,7 +143,7 @@
             radio_perimetro_q.TabStop = true;
             radio_perimetro_q.Text = "Perímetro";
             radio_perimetro_q.UseVisualStyleBackColor = true;
-            radio_perimetro_q.CheckedChanged += radio_perimetro_CheckedChanged;
+            radio_perimetro_q.CheckedChanged += radio_perimetro_q_CheckedChanged;
             // 
             // radio_area_q
             // 
@@ -152,7 +156,7 @@
             radio_area_q.TabStop = true;
             radio_area_q.Text = "Área";
             radio_area_q.UseVisualStyleBackColor = true;
-            radio_area_q.CheckedChanged += radio_area_CheckedChanged;
+            radio_area_q.CheckedChanged += radio_area_q_CheckedChanged;
             // 
             // radio_volume_q
             // 
@@ -165,7 +169,7 @@
             radio_volume_q.TabStop = true;
             radio_volume_q.Text = "Volume";
             radio_volume_q.UseVisualStyleBackColor = true;
-            radio_volume_q.CheckedChanged += radio_volume_CheckedChanged;
+            radio_volume_q.CheckedChanged += radio_volume_q_CheckedChanged;
             // 
             // button_calc_1
             // 
@@ -175,7 +179,7 @@
             button_calc_1.TabIndex = 29;
             button_calc_1.Text = "Calculadora padrão";
             button_calc_1.UseVisualStyleBackColor = true;
-            button_calc_1.Click += button_trocar_Click;
+            button_calc_1.Click += button_calc_1_Click;
             // 
             // radio_volume_r
             // 
@@ -188,6 +192,7 @@
             radio_volume_r.TabStop = true;
             radio_volume_r.Text = "Volume";
             radio_volume_r.UseVisualStyleBackColor = true;
+            radio_volume_r.CheckedChanged += radio_volume_r_CheckedChanged;
             // 
             // radio_area_r
             // 
@@ -200,6 +205,7 @@
             radio_area_r.TabStop = true;
             radio_area_r.Text = "Área";
             radio_area_r.UseVisualStyleBackColor = true;
+            radio_area_r.CheckedChanged += radio_area_r_CheckedChanged;
             // 
             // radio_perimetro_r
             // 
@@ -212,14 +218,15 @@
             radio_perimetro_r.TabStop = true;
             radio_perimetro_r.Text = "Perímetro";
             radio_perimetro_r.UseVisualStyleBackColor = true;
+            radio_perimetro_r.CheckedChanged += radio_perimetro_r_CheckedChanged;
             // 
-            // label_erro_t
+            // label_erro_r
             // 
-            label_erro_t.AutoSize = true;
-            label_erro_t.Location = new Point(330, 70);
-            label_erro_t.Name = "label_erro_t";
-            label_erro_t.Size = new Size(0, 15);
-            label_erro_t.TabIndex = 37;
+            label_erro_r.AutoSize = true;
+            label_erro_r.Location = new Point(330, 70);
+            label_erro_r.Name = "label_erro_r";
+            label_erro_r.Size = new Size(0, 15);
+            label_erro_r.TabIndex = 37;
             // 
             // label_resultado_r
             // 
@@ -243,7 +250,7 @@
             // label_r_sinal_a
             // 
             label_r_sinal_a.AutoSize = true;
-            label_r_sinal_a.Location = new Point(392, 45);
+            label_r_sinal_a.Location = new Point(392, 44);
             label_r_sinal_a.Name = "label_r_sinal_a";
             label_r_sinal_a.Size = new Size(0, 15);
             label_r_sinal_a.TabIndex = 34;
@@ -271,6 +278,7 @@
             button_calcular_r.TabIndex = 31;
             button_calcular_r.Text = "Calcular";
             button_calcular_r.UseVisualStyleBackColor = true;
+            button_calcular_r.Click += button_calcular_r_Click;
             // 
             // button_limpar_r
             // 
@@ -281,11 +289,12 @@
             button_limpar_r.TabIndex = 30;
             button_limpar_r.Text = "Limpar";
             button_limpar_r.UseVisualStyleBackColor = true;
+            button_limpar_r.Click += button_limpar_r_Click;
             // 
             // label_r_sinal_b
             // 
             label_r_sinal_b.AutoSize = true;
-            label_r_sinal_b.Location = new Point(477, 47);
+            label_r_sinal_b.Location = new Point(477, 44);
             label_r_sinal_b.Name = "label_r_sinal_b";
             label_r_sinal_b.Size = new Size(0, 15);
             label_r_sinal_b.TabIndex = 43;
@@ -307,29 +316,69 @@
             button_calc_3.UseVisualStyleBackColor = true;
             button_calc_3.Click += button_calc_3_Click;
             // 
-            // label_lado
+            // label_lado_a
             // 
-            label_lado.AutoSize = true;
-            label_lado.Location = new Point(39, 22);
-            label_lado.Name = "label_lado";
-            label_lado.Size = new Size(33, 15);
-            label_lado.TabIndex = 45;
-            label_lado.Text = "Lado";
+            label_lado_a.AutoSize = true;
+            label_lado_a.Location = new Point(39, 22);
+            label_lado_a.Name = "label_lado_a";
+            label_lado_a.Size = new Size(33, 15);
+            label_lado_a.TabIndex = 45;
+            label_lado_a.Text = "Lado";
             // 
-            // calculadora_2
+            // label_largura
+            // 
+            label_largura.AutoSize = true;
+            label_largura.Location = new Point(331, 22);
+            label_largura.Name = "label_largura";
+            label_largura.Size = new Size(47, 15);
+            label_largura.TabIndex = 46;
+            label_largura.Text = "Largura";
+            // 
+            // label_altura
+            // 
+            label_altura.AutoSize = true;
+            label_altura.Location = new Point(420, 22);
+            label_altura.Name = "label_altura";
+            label_altura.Size = new Size(39, 15);
+            label_altura.TabIndex = 47;
+            label_altura.Text = "Altura";
+            // 
+            // label_lado_b
+            // 
+            label_lado_b.AutoSize = true;
+            label_lado_b.Location = new Point(128, 22);
+            label_lado_b.Name = "label_lado_b";
+            label_lado_b.Size = new Size(33, 15);
+            label_lado_b.TabIndex = 48;
+            label_lado_b.Text = "Lado";
+            // 
+            // label_comprimento
+            // 
+            label_comprimento.AutoSize = true;
+            label_comprimento.Location = new Point(484, 22);
+            label_comprimento.Name = "label_comprimento";
+            label_comprimento.Size = new Size(82, 15);
+            label_comprimento.TabIndex = 49;
+            label_comprimento.Text = "Comprimento";
+            // 
+            // calculadora_quadrilateros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(664, 251);
-            Controls.Add(label_lado);
+            Controls.Add(label_comprimento);
+            Controls.Add(label_lado_b);
+            Controls.Add(label_altura);
+            Controls.Add(label_largura);
+            Controls.Add(label_lado_a);
             Controls.Add(button_calc_3);
             Controls.Add(label_r_sinal_b);
             Controls.Add(input_numero_r_c);
             Controls.Add(radio_volume_r);
             Controls.Add(radio_area_r);
             Controls.Add(radio_perimetro_r);
-            Controls.Add(label_erro_t);
+            Controls.Add(label_erro_r);
             Controls.Add(label_resultado_r);
             Controls.Add(label_r_b);
             Controls.Add(label_r_sinal_a);
@@ -349,7 +398,7 @@
             Controls.Add(input_numero_q_a);
             Controls.Add(button_calcular_q);
             Controls.Add(button_limpar_q);
-            Name = "calculadora_2";
+            Name = "calculadora_quadrilateros";
             Text = "Calculadora de quadriláteros";
             ResumeLayout(false);
             PerformLayout();
@@ -372,7 +421,7 @@
         private RadioButton radio_volume_r;
         private RadioButton radio_area_r;
         private RadioButton radio_perimetro_r;
-        private Label label_erro_t;
+        private Label label_erro_r;
         private Label label_resultado_r;
         private Label label_r_b;
         private Label label_r_sinal_a;
@@ -383,6 +432,10 @@
         private Label label_r_sinal_b;
         private TextBox input_numero_r_c;
         private Button button_calc_3;
-        private Label label_lado;
+        private Label label_lado_a;
+        private Label label_largura;
+        private Label label_altura;
+        private Label label_lado_b;
+        private Label label_comprimento;
     }
 }

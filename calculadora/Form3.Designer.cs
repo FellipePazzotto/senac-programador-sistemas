@@ -1,6 +1,6 @@
 ﻿namespace calculadora
 {
-    partial class calculadora_3
+    partial class calculadora_circunferencias
     {
         /// <summary>
         /// Required designer variable.
@@ -211,7 +211,7 @@
             label_titulo_formula.TabIndex = 34;
             label_titulo_formula.Text = "Fórmula";
             // 
-            // calculadora_3
+            // calculadora_circunferencias
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -233,7 +233,7 @@
             Controls.Add(input_raio);
             Controls.Add(button_calcular);
             Controls.Add(button_limpar);
-            Name = "calculadora_3";
+            Name = "calculadora_circunferencias";
             Text = "Calculadora de circunferências";
             ResumeLayout(false);
             PerformLayout();

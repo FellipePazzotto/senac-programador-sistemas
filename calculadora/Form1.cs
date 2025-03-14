@@ -1,8 +1,8 @@
 namespace calculadora
 {
-    public partial class calculadora_1 : Form
+    public partial class calculadora_padrao : Form
     {
-        public calculadora_1()
+        public calculadora_padrao()
         {
             InitializeComponent();
         }
@@ -36,13 +36,13 @@ namespace calculadora
 
             if (string.IsNullOrWhiteSpace(numero_a_puro))
             {
-                label_erro.Text = "Insira um valor no 1° campo.";
+                label_erro.Text = "O campo '1° número' está vazio.";
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(numero_b_puro))
             {
-                label_erro.Text = "Insira um valor no 2° campo.";
+                label_erro.Text = "O campo '2° número' está vazio.";
                 return;
             }
 
@@ -101,11 +101,18 @@ namespace calculadora
             input_numero_b.Clear();
         }
 
-        private void button_trocar_Click(object sender, EventArgs e)
+        private void button_calc_2_Click(object sender, EventArgs e)
         {
-            Form form_2 = new calculadora_2();
+            Form form_2 = new calculadora_quadrilateros();
             this.Hide();
             form_2.ShowDialog();
+        }
+
+        private void button_calc_3_Click(object sender, EventArgs e)
+        {
+            Form form_3 = new calculadora_circunferencias();
+            this.Hide();
+            form_3.ShowDialog();
         }
     }
 }

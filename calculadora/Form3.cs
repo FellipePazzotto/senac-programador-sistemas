@@ -11,9 +11,9 @@ using static System.Windows.Forms.DataFormats;
 
 namespace calculadora
 {
-    public partial class calculadora_3 : Form
+    public partial class calculadora_circunferencias : Form
     {
-        public calculadora_3()
+        public calculadora_circunferencias()
         {
             InitializeComponent();
         }
@@ -102,14 +102,14 @@ namespace calculadora
 
         private void button_calc_1_Click(object sender, EventArgs e)
         {
-            var form = new calculadora_1();
+            var form = new calculadora_padrao();
             form.Show();
             this.Hide();
         }
 
         private void button_calc_2_Click(object sender, EventArgs e)
         {
-            var form = new calculadora_2();
+            var form = new calculadora_quadrilateros();
             form.Show();
             this.Hide();
         }
