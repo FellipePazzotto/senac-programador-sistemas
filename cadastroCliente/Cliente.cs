@@ -21,10 +21,3 @@ namespace cadastroCliente
         public TipoCliente tipo { get; set; }
     }
 }
-
-    enum TipoCliente
-    {
-        PF,
-        PJ
-    }
-

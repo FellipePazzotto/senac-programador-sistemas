@@ -1,0 +1,17 @@
+C:\repositorios\senac-programador-sistemas\cadastroCliente\bin\Debug\net8.0-windows\cadastroCliente.exe
+C:\repositorios\senac-programador-sistemas\cadastroCliente\bin\Debug\net8.0-windows\cadastroCliente.deps.json
+C:\repositorios\senac-programador-sistemas\cadastroCliente\bin\Debug\net8.0-windows\cadastroCliente.runtimeconfig.json
+C:\repositorios\senac-programador-sistemas\cadastroCliente\bin\Debug\net8.0-windows\cadastroCliente.dll
+C:\repositorios\senac-programador-sistemas\cadastroCliente\bin\Debug\net8.0-windows\cadastroCliente.pdb
+C:\repositorios\senac-programador-sistemas\cadastroCliente\obj\Debug\net8.0-windows\cadastroCliente.Main.resources
+C:\repositorios\senac-programador-sistemas\cadastroCliente\obj\Debug\net8.0-windows\cadastroCliente.csproj.GenerateResource.cache
+C:\repositorios\senac-programador-sistemas\cadastroCliente\obj\Debug\net8.0-windows\cadastroCliente.GeneratedMSBuildEditorConfig.editorconfig
+C:\repositorios\senac-programador-sistemas\cadastroCliente\obj\Debug\net8.0-windows\cadastroCliente.AssemblyInfoInputs.cache
+C:\repositorios\senac-programador-sistemas\cadastroCliente\obj\Debug\net8.0-windows\cadastroCliente.AssemblyInfo.cs
+C:\repositorios\senac-programador-sistemas\cadastroCliente\obj\Debug\net8.0-windows\cadastroCliente.csproj.CoreCompileInputs.cache
+C:\repositorios\senac-programador-sistemas\cadastroCliente\obj\Debug\net8.0-windows\cadastroCliente.sourcelink.json
+C:\repositorios\senac-programador-sistemas\cadastroCliente\obj\Debug\net8.0-windows\cadastroCliente.dll
+C:\repositorios\senac-programador-sistemas\cadastroCliente\obj\Debug\net8.0-windows\refint\cadastroCliente.dll
+C:\repositorios\senac-programador-sistemas\cadastroCliente\obj\Debug\net8.0-windows\cadastroCliente.pdb
+C:\repositorios\senac-programador-sistemas\cadastroCliente\obj\Debug\net8.0-windows\cadastroCliente.genruntimeconfig.cache
+C:\repositorios\senac-programador-sistemas\cadastroCliente\obj\Debug\net8.0-windows\ref\cadastroCliente.dll
