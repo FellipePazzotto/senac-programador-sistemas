@@ -123,6 +123,7 @@
             // 
             combo_etnia.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             combo_etnia.FormattingEnabled = true;
+            combo_etnia.Items.AddRange(new object[] { "Branco", "Negro", "Pardo", "Amarelo", "Indígena" });
             combo_etnia.Location = new Point(200, 345);
             combo_etnia.Name = "combo_etnia";
             combo_etnia.Size = new Size(121, 29);
@@ -295,10 +296,10 @@
             // 
             combo_estado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             combo_estado.FormattingEnabled = true;
-            combo_estado.Items.AddRange(new object[] { "AC - Acre", "", "AL - Alagoas", "", "AP - Amapá", "", "AM - Amazonas", "", "BA - Bahia", "", "CE - Ceará", "", "DF - Distrito Federal", "", "ES - Espírito Santo", "", "GO - Goiás", "", "MA - Maranhão", "", "MT - Mato Grosso", "", "MS - Mato Grosso do Sul", "", "MG - Minas Gerais", "", "PA - Pará", "", "PB - Paraíba", "", "PR - Paraná", "", "PE - Pernambuco", "", "PI - Piauí", "", "RJ - Rio de Janeiro", "", "RN - Rio Grande do Norte", "", "RS - Rio Grande do Sul", "", "RO - Rondônia", "", "RR - Roraima", "", "SC - Santa Catarina", "", "SP - São Paulo", "", "SE - Sergipe", "", "TO - Tocantins" });
+            combo_estado.Items.AddRange(new object[] { "AC - Acre", "AL - Alagoas", "AP - Amapá", "AM - Amazonas", "BA - Bahia", "CE - Ceará", "DF - Distrito Federal", "ES - Espírito Santo", "GO - Goiás", "MA - Maranhão", "MT - Mato Grosso", "MS - Mato Grosso do Sul", "MG - Minas Gerais", "PA - Pará", "PB - Paraíba", "PR - Paraná", "PE - Pernambuco", "PI - Piauí", "RJ - Rio de Janeiro", "RN - Rio Grande do Norte", "RS - Rio Grande do Sul", "RO - Rondônia", "RR - Roraima", "SC - Santa Catarina", "SP - São Paulo", "SE - Sergipe", "TO - Tocantins" });
             combo_estado.Location = new Point(200, 605);
             combo_estado.Name = "combo_estado";
-            combo_estado.Size = new Size(121, 29);
+            combo_estado.Size = new Size(200, 29);
             combo_estado.TabIndex = 23;
             // 
             // input_cep
@@ -423,7 +424,7 @@
             label_erro.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label_erro.Location = new Point(430, 641);
             label_erro.Name = "label_erro";
-            label_erro.Size = new Size(0, 40);
+            label_erro.Size = new Size(215, 40);
             label_erro.TabIndex = 35;
             // 
             // Main

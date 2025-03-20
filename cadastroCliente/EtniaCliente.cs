@@ -10,6 +10,8 @@ namespace cadastroCliente
     {
         Branco,
         Negro,
-        Pardo
+        Pardo,
+        Amarelo,
+        Indígena
     }
 }
