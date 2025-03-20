@@ -5,8 +5,8 @@ namespace cadastroCliente
 {
     public partial class Main : Form
     {
-        private readonly List<Cliente> clientes = [];
-        string tipo = "";
+        private readonly List<Cliente> clientes = new List<Cliente>();
+        TipoCliente tipo;
         bool estrangeiro = false;
 
         public Main()
@@ -24,7 +24,7 @@ namespace cadastroCliente
                 id = 01,
                 nome = "Neymar Júnior",
                 dataNascimento = "05/02/1992",
-                telefone = "1191122-3344",
+                telefone = "(11) 91122-3344",
                 email = "neymar.junior@gmail.com",
                 endereco = enderecoPadrao,
                 genero = GeneroCliente.Masculino,
@@ -40,7 +40,7 @@ namespace cadastroCliente
                 id = 02,
                 nome = "Marcos Leonardo",
                 dataNascimento = "02/05/2003",
-                telefone = "1195566-7788",
+                telefone = "(11) 95566-7788",
                 email = "marcos.leonardo@gmail.com",
                 endereco = enderecoPadrao,
                 genero = GeneroCliente.Masculino,
@@ -56,7 +56,7 @@ namespace cadastroCliente
                 id = 03,
                 nome = "Tiquinho Soares",
                 dataNascimento = "17/01/1991",
-                telefone = "1191133-5577",
+                telefone = "(11) 91133-5577",
                 email = "tiquinho.soares@gmail.com",
                 endereco = enderecoPadrao,
                 genero = GeneroCliente.Masculino,
@@ -87,12 +87,12 @@ namespace cadastroCliente
 
             if (radio_tipo_pf.Checked == true)
             {
-                return /*label_erro.Text =*/ tipo = "PF";
+                /*label_erro.Text =*/ tipo = TipoCliente.PF;
             }
 
             if (radio_tipo_pj.Checked == true)
             {
-                return /*label_erro.Text =*/ tipo = "PJ";
+                /*label_erro.Text =*/ tipo = TipoCliente.PJ;
             }
 
             return label_erro.Text = "";
@@ -108,6 +108,11 @@ namespace cadastroCliente
             if (!(input_nome.Text.Any(char.IsLetter)))
             {
                 return label_erro.Text = "O campo 'Nome completo' deve conter apenas letras.";
+            }
+
+            if (input_nome.Text.Length < 5)
+            {
+                return label_erro.Text = "O campo 'Nome completo' está incompleto.";
             }
 
             if (!input_nome.Text.Any(char.IsWhiteSpace))
@@ -145,6 +150,11 @@ namespace cadastroCliente
                 return label_erro.Text = "O campo 'Telefone' deve conter um número de celular.";
             }
 
+            if (clientes.Any(cliente => cliente.telefone == input_telefone.Text))
+            {
+                return label_erro.Text = "O campo 'Telefone' contém um telefone já cadastrado.";
+            }
+
             return label_erro.Text = "";
         }
 
@@ -160,19 +170,24 @@ namespace cadastroCliente
                 return label_erro.Text = "O campo 'Email' deve conter um email válido.";
             }
 
+            if (clientes.Any(cliente => cliente.email == input_email.Text))
+            {
+                return label_erro.Text = "O campo 'Email' contém um email já cadastrado.";
+            }
+
             return label_erro.Text = "";
         }
 
         public string ValidarGenero()
         {
-            var generos = new List<string> { "Masculino", "Feminino", "Outros"};
+            var generos = Enum.GetNames(typeof(GeneroCliente)).ToList();
 
             if (string.IsNullOrEmpty(combo_genero.Text) || string.IsNullOrWhiteSpace(combo_genero.Text))
             {
                 return label_erro.Text = "O campo 'Gênero' está vazio.";
             }
 
-            if (!(generos.Any(genero => combo_genero.Text.Contains(genero))))
+            if (!generos.Contains(combo_genero.Text))
             {
                 return label_erro.Text = "O campo 'Gênero' deve conter um gênero válido.";
             }
@@ -182,16 +197,16 @@ namespace cadastroCliente
 
         public string ValidarNomeSocial()
         {
-            if (!(string.IsNullOrWhiteSpace(input_nome_social.Text)) || !(string.IsNullOrEmpty(input_nome_social.Text)))
+            if (!string.IsNullOrWhiteSpace(input_nome_social.Text))
             {
-                if (!(input_nome_social.Text.Any(char.IsLetter)))
+                if (!input_nome_social.Text.Any(char.IsLetter))
                 {
                     return label_erro.Text = "O campo 'Nome social' possui um número.";
                 }
 
                 if (!input_nome_social.Text.Any(char.IsWhiteSpace))
                 {
-                    return label_erro.Text = "O campo 'Nome completo' possui apenas um nome.";
+                    return label_erro.Text = "O campo 'Nome social' deve conter mais de um nome.";
                 }
             }
 
@@ -215,18 +230,18 @@ namespace cadastroCliente
             return label_erro.Text = "";
         }
 
-        public bool ValidarEstrangeiro()
+        public string ValidarEstrangeiro()
         {
-            if (check_estrangeiro.Checked == true)
+            if (check_estrangeiro.Checked)
             {
-                label_erro.Text = "Real";
-                return estrangeiro = true;
+                estrangeiro = true;
             }
             else
             {
-                label_erro.Text = "Fake";
-                return estrangeiro = false;
+                estrangeiro = false;
             }
+
+            return label_erro.Text = "";
         }
 
         public string ValidarLogradouro()
@@ -350,38 +365,144 @@ namespace cadastroCliente
 
         private void button_cadastrar_Click(object sender, EventArgs e)
         {
-            //ValidarTipoCliente();
-            //ValidarNome();
-            //ValidarDataNascimento();
-            //ValidarTelefone();
-            //ValidarEmail();
-            //ValidarGenero();
-            //ValidarNomeSocial();
-            //ValidarEtnia();
-            //ValidarEstrangeiro();
-            //ValidarLogradouro();
-            //ValidarNumero();
-            //ValidarComplemento();
-            //ValidarBairro();
-            //ValidarMunicipio();
-            //ValidarEstado();
-            //ValidarCEP();
+            string erro = ValidarTipoCliente();
+            if (!string.IsNullOrEmpty(erro))
+            {
+                label_erro.Text = erro;
+                return;
+            }
 
-            string nome = input_nome.Text;
-            string dataNasc = input_data_nasc.Text;
-            string telefone = input_telefone.Text;
-            string email = input_email.Text;
-            string genero = combo_genero.Text;
-            string nomeSocal = input_nome_social.Text;
-            string etnia = combo_etnia.Text;
-            bool estrang = check_estrangeiro.Checked;
-            string logradouro = input_logradouro.Text;
-            string numero = input_numero.Text;
-            string comp = input_complemento.Text;
-            string bairro = input_bairro.Text;
-            string municipio = input_municipio.Text;
-            string estado = combo_estado.Text;
-            string cep = input_cep.Text;
+            erro = ValidarNome();
+            if (!string.IsNullOrEmpty(erro))
+            {
+                label_erro.Text = erro;
+                return;
+            }
+
+            erro = ValidarDataNascimento();
+            if (!string.IsNullOrEmpty(erro))
+            {
+                label_erro.Text = erro;
+                return;
+            }
+
+            erro = ValidarTelefone();
+            if (!string.IsNullOrEmpty(erro))
+            {
+                label_erro.Text = erro;
+                return;
+            }
+
+            erro = ValidarEmail();
+            if (!string.IsNullOrEmpty(erro))
+            {
+                label_erro.Text = erro;
+                return;
+            }
+
+            erro = ValidarGenero();
+            if (!string.IsNullOrEmpty(erro))
+            {
+                label_erro.Text = erro;
+                return;
+            }
+
+            erro = ValidarNomeSocial();
+            if (!string.IsNullOrEmpty(erro))
+            {
+                label_erro.Text = erro;
+                return;
+            }
+
+            erro = ValidarEtnia();
+            if (!string.IsNullOrEmpty(erro))
+            {
+                label_erro.Text = erro;
+                return;
+            }
+
+            erro = ValidarEstrangeiro();
+            if (!string.IsNullOrEmpty(erro))
+            {
+                label_erro.Text = erro;
+                return;
+            }
+
+            erro = ValidarLogradouro();
+            if (!string.IsNullOrEmpty(erro))
+            {
+                label_erro.Text = erro;
+                return;
+            }
+
+            erro = ValidarNumero();
+            if (!string.IsNullOrEmpty(erro))
+            {
+                label_erro.Text = erro;
+                return;
+            }
+
+            erro = ValidarComplemento();
+            if (!string.IsNullOrEmpty(erro))
+            {
+                label_erro.Text = erro;
+                return;
+            }
+
+            erro = ValidarBairro();
+            if (!string.IsNullOrEmpty(erro))
+            {
+                label_erro.Text = erro;
+                return;
+            }
+
+            erro = ValidarMunicipio();
+            if (!string.IsNullOrEmpty(erro))
+            {
+                label_erro.Text = erro;
+                return;
+            }
+
+            erro = ValidarEstado();
+            if (!string.IsNullOrEmpty(erro))
+            {
+                label_erro.Text = erro;
+                return;
+            }
+
+            erro = ValidarCEP();
+            if (!string.IsNullOrEmpty(erro))
+            {
+                label_erro.Text = erro;
+                return;
+            }
+
+            Cliente clienteNovo = new Cliente
+            {
+                id = NovoId(),
+                nome = input_nome.Text,
+                dataNascimento = input_data_nasc.Text,
+                telefone = input_telefone.Text,
+                email = input_email.Text,
+                endereco = new EnderecoCliente
+                {
+                    logradouro = input_logradouro.Text,
+                    numero = input_numero.Text,
+                    complemento = input_complemento.Text,
+                    bairro = input_bairro.Text,
+                    municipio = input_municipio.Text,
+                    estado = combo_estado.Text,
+                    cep = input_cep.Text
+                },
+                genero = (GeneroCliente)Enum.Parse(typeof(GeneroCliente), combo_genero.Text),
+                nomeSocial = input_nome_social.Text,
+                etnia = (EtniaCliente)Enum.Parse(typeof(EtniaCliente), combo_etnia.Text),
+                estrangeiro = check_estrangeiro.Checked,
+                tipo = tipo
+            };
+
+            clientes.Add(clienteNovo);
+            label_erro.Text = $"Cliente cadastrado com sucesso {clienteNovo.id}.";
         }
     }
 }
