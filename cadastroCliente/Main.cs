@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace cadastroCliente
@@ -130,14 +131,19 @@ namespace cadastroCliente
 
         public string ValidarDataNascimento()
         {
-            if (string.IsNullOrWhiteSpace(input_data_nasc.Text) || string.IsNullOrEmpty(input_data_nasc.Text))
-            {
-                return label_erro.Text = "O campo 'Data de nascimento' está vazio.";
-            }
-
             if (input_data_nasc.Text.Length <= 8)
             {
-                return label_erro.Text = "O campo 'Data de nascimento' deve conter uma data válida.";
+                return label_erro.Text = $"O campo 'Data de nascimento' deve conter uma data DD/MM/AAAA.";
+            }
+            else
+            {
+                string dataTexto = input_data_nasc.Text.Trim();
+                DateTime dataHoje;
+
+                if (!DateTime.TryParse(dataTexto, out dataHoje))
+                {
+                    return label_erro.Text = "O campo 'Data de nascimento' deve conter uma data válida.";
+                }
             }
 
             return label_erro.Text = "";
