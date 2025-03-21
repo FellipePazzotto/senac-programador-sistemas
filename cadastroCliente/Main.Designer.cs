@@ -64,6 +64,8 @@
             button_limpar = new Button();
             label_titulo = new Label();
             label_erro = new Label();
+            dataGridViewClientes = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
             SuspendLayout();
             // 
             // input_nome
@@ -421,17 +423,33 @@
             // 
             // label_erro
             // 
+            label_erro.AutoSize = true;
             label_erro.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label_erro.Location = new Point(430, 641);
+            label_erro.Location = new Point(430, 661);
             label_erro.Name = "label_erro";
-            label_erro.Size = new Size(215, 40);
+            label_erro.Size = new Size(0, 17);
             label_erro.TabIndex = 35;
+            // 
+            // dataGridViewClientes
+            // 
+            dataGridViewClientes.AllowUserToAddRows = false;
+            dataGridViewClientes.AllowUserToDeleteRows = false;
+            dataGridViewClientes.AllowUserToOrderColumns = true;
+            dataGridViewClientes.AllowUserToResizeRows = false;
+            dataGridViewClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewClientes.Location = new Point(580, 25);
+            dataGridViewClientes.MultiSelect = false;
+            dataGridViewClientes.Name = "dataGridViewClientes";
+            dataGridViewClientes.ReadOnly = true;
+            dataGridViewClientes.Size = new Size(580, 569);
+            dataGridViewClientes.TabIndex = 36;
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(684, 761);
+            ClientSize = new Size(1184, 761);
+            Controls.Add(dataGridViewClientes);
             Controls.Add(label_erro);
             Controls.Add(label_titulo);
             Controls.Add(button_limpar);
@@ -471,6 +489,7 @@
             ForeColor = SystemColors.ControlText;
             Name = "Main";
             Text = "Cadastro de clientes";
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -513,5 +532,6 @@
         private Button button_limpar;
         private Label label_titulo;
         private Label label_erro;
+        private DataGridView dataGridViewClientes;
     }
 }

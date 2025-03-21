@@ -6,6 +6,8 @@ namespace cadastroCliente
     public partial class Main : Form
     {
         private readonly List<Cliente> clientes = new List<Cliente>();
+        private readonly BindingSource BindingSource = [];
+
         TipoCliente tipo;
         bool estrangeiro = false;
 
@@ -68,6 +70,9 @@ namespace cadastroCliente
             clientes.Add(cliente3);
 
             InitializeComponent();
+
+            BindingSource.DataSource = clientes;
+            dataGridViewClientes.DataSource = BindingSource;
         }
 
         public int NovoId()
@@ -502,7 +507,8 @@ namespace cadastroCliente
             };
 
             clientes.Add(clienteNovo);
-            label_erro.Text = $"Cliente cadastrado com sucesso {clienteNovo.id}.";
+            BindingSource.ResetBindings(false);
+            label_erro.Text = $"{clienteNovo.id}° cliente cadastrado com sucesso.";
         }
     }
 }
