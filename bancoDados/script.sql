@@ -9,11 +9,9 @@ CREATE TABLE IF NOT EXISTS usuario (
     
     PRIMARY KEY (id)
 );
-    
-INSERT INTO usuario (nome, email, senha) VALUES 
-	('Fellipe Pazzotto', 'fepazzotto@gmail.com', '1234567890');
 
 INSERT INTO usuario (nome, email, senha) VALUES 
+	('Fellipe Pazzotto', 'fepazzotto@gmail.com', '1234567890'),
 	('Lionel Messi', 'messi@gmail.com', '123456789Aa!'), 
 	('Cristiano Ronaldo', 'ronaldo@gmail.com', '123456789Bb!'), 
 	('Neymar Júnior', 'junior@gmail.com', '123456789Cc!');
