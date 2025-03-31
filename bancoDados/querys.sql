@@ -42,4 +42,4 @@ INNER JOIN autor a ON l.id_autor = a.id
 WHERE l.apagado = 0
 ORDER BY l.id ASC;
 
-/*UPDATE livro SET apagado = 1 WHERE id_autor = 1;*/
+UPDATE livro SET apagado = 1 WHERE id_autor = 1;
