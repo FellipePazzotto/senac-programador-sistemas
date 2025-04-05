@@ -72,8 +72,9 @@ INSERT INTO pedido (produto_id, quantidade, data_pedido, cliente_id) VALUES
 
 SELECT * FROM pedido;
 
-/*Tarefa 1.1*/ SELECT nome AS produto, preco 
+/*Tarefa 1.1*/ SELECT categoria, nome AS produto, preco 
 			   FROM produto WHERE preco > 3000.00 
+               AND categoria = "Eletrônicos"
                ORDER BY preco ASC;
 
 /*Tarefa 1.2*/ SELECT nome, cidade, idade 
@@ -112,7 +113,8 @@ SELECT * FROM pedido;
 			   WHERE quantidade = (SELECT MAX(quantidade) FROM pedido);
 
 /*Tarefa 2.5*/ SELECT cidade, COUNT(cidade) AS numero_clientes 
-			   FROM cliente GROUP BY cidade;
+			   FROM cliente GROUP BY cidade
+               ORDER BY COUNT(cidade) DESC;
 
 /*Tarefa 3.1*/ SELECT pro.nome AS produto, forn.nome AS fornecedor 
 			   FROM produto pro
