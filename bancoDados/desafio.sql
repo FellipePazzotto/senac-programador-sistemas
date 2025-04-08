@@ -1,5 +1,3 @@
--- TABELAS PRINCIPAIS
-
 CREATE TABLE autores (
     id_autor INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -80,9 +78,6 @@ CREATE TABLE multas (
     FOREIGN KEY (id_emprestimo) REFERENCES emprestimos(id_emprestimo)
 );
 
--- SCRIPT DE INSERÇÃO DE DADOS FICTÍCIOS
-
--- AUTORES
 INSERT INTO autores (nome, nacionalidade) VALUES
 ('J.K. Rowling', 'Reino Unido'),
 ('George R.R. Martin', 'EUA'),
@@ -95,7 +90,6 @@ INSERT INTO autores (nome, nacionalidade) VALUES
 ('Jane Austen', 'Reino Unido'),
 ('Neil Gaiman', 'Reino Unido');
 
--- EDITORAS
 INSERT INTO editoras (nome, pais) VALUES
 ('Companhia das Letras', 'Brasil'),
 ('HarperCollins', 'EUA'),
@@ -103,7 +97,6 @@ INSERT INTO editoras (nome, pais) VALUES
 ('Editora Rocco', 'Brasil'),
 ('Kodansha', 'Japão');
 
--- CATEGORIAS
 INSERT INTO categorias (nome) VALUES
 ('Romance'),
 ('Ficção Científica'),
@@ -114,7 +107,6 @@ INSERT INTO categorias (nome) VALUES
 ('Tecnologia'),
 ('Biografia');
 
--- CLIENTES
 INSERT INTO clientes (nome, email, telefone, data_cadastro) VALUES
 ('Ana Silva', 'ana@email.com', '1111-1111', '2023-01-15'),
 ('Bruno Costa', 'bruno@email.com', '2222-2222', '2023-02-20'),
@@ -127,7 +119,6 @@ INSERT INTO clientes (nome, email, telefone, data_cadastro) VALUES
 ('Igor Fernandes', 'igor@email.com', '9999-9999', '2023-08-20'),
 ('Juliana Ribeiro', 'juliana@email.com', '1010-1010', '2023-09-30');
 
--- LIVROS
 INSERT INTO livros (titulo, ano_publicacao, id_autor, id_editora) VALUES
 ('Harry Potter e a Pedra Filosofal', 1997, 1, 4),
 ('As Crônicas de Gelo e Fogo', 1996, 2, 2),
@@ -150,14 +141,12 @@ INSERT INTO livros (titulo, ano_publicacao, id_autor, id_editora) VALUES
 ('Razão e Sensibilidade', 1811, 9, 3),
 ('O Livro do Cemitério', 2008, 10, 3);
 
--- LIVROS_CATEGORIAS
 INSERT INTO livros_categorias (id_livro, id_categoria) VALUES
 (1, 1), (1, 3), (2, 3), (2, 1), (3, 1), (4, 1), (4, 5), (5, 1),
 (6, 6), (7, 2), (7, 7), (8, 4), (8, 8), (9, 1), (10, 3), (10, 1),
 (11, 3), (12, 3), (13, 1), (14, 1), (14, 5), (15, 1), (16, 6),
 (17, 2), (18, 4), (19, 1), (20, 3), (20, 6);
 
--- EMPRESTIMOS
 INSERT INTO emprestimos (id_cliente, data_emprestimo, data_prevista_devolucao, data_devolucao) VALUES
 (1, '2024-01-05', '2024-01-20', '2024-01-18'),
 (2, '2024-01-10', '2024-01-25', NULL),
@@ -170,7 +159,6 @@ INSERT INTO emprestimos (id_cliente, data_emprestimo, data_prevista_devolucao, d
 (9, '2024-04-01', '2024-04-16', NULL),
 (10, '2024-04-05', '2024-04-20', NULL);
 
--- EMPRESTIMOS_LIVROS
 INSERT INTO emprestimos_livros (id_emprestimo, id_livro) VALUES
 (1, 1), (1, 3),
 (2, 2),
@@ -183,7 +171,6 @@ INSERT INTO emprestimos_livros (id_emprestimo, id_livro) VALUES
 (9, 12),
 (10, 13), (10, 14);
 
--- AVALIACOES
 INSERT INTO avaliacoes (id_cliente, id_livro, nota, comentario, data_avaliacao) VALUES
 (1, 1, 5, 'Excelente leitura!', '2024-01-20'),
 (2, 2, 4, 'Muito envolvente.', '2024-01-25'),
@@ -194,7 +181,6 @@ INSERT INTO avaliacoes (id_cliente, id_livro, nota, comentario, data_avaliacao) 
 (8, 11, 5, 'Fantástico!', '2024-03-28'),
 (9, 12, 4, 'Muito bom!', '2024-04-02');
 
--- MULTAS
 INSERT INTO multas (id_emprestimo, valor, descricao, paga) VALUES
 (3, 15.00, 'Devolução com 5 dias de atraso', TRUE),
 (4, 10.00, 'Devolução com 2 dias de atraso', FALSE),
