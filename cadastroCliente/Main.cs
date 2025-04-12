@@ -1,12 +1,12 @@
-using System;
-using System.Globalization;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
+using cadastroCliente.dominio;
 
 namespace cadastroCliente
 {
     public partial class Main : Form
     {
-        private readonly List<Cliente> clientes = new List<Cliente>();
+        private readonly Cliente Cliente = new();
+
+        private readonly List<Cliente> Clientes = [];
         private readonly BindingSource BindingSource = [];
 
         TipoCliente tipo;
@@ -14,91 +14,34 @@ namespace cadastroCliente
 
         public Main()
         {
-            EnderecoCliente enderecoPadrao = new EnderecoCliente();
-            enderecoPadrao.logradouro = "Avenida Paulista";
-            enderecoPadrao.numero = "1578";
-            enderecoPadrao.complemento = "";
-            enderecoPadrao.bairro = "Bela Vista";
-            enderecoPadrao.estado = "São Paulo";
-            enderecoPadrao.cep = "01310-200";
-
-            Cliente cliente1 = new Cliente()
-            {
-                id = 01,
-                nome = "Neymar Júnior",
-                dataNascimento = "05/02/1992",
-                telefone = "(11) 91122-3344",
-                email = "neymar.junior@gmail.com",
-                endereco = enderecoPadrao,
-                genero = GeneroCliente.Masculino,
-                nomeSocial = "",
-                etnia = EtniaCliente.Pardo,
-                estrangeiro = false,
-                tipo = TipoCliente.PJ
-            };
-            clientes.Add(cliente1);
-
-            Cliente cliente2 = new Cliente()
-            {
-                id = 02,
-                nome = "Marcos Leonardo",
-                dataNascimento = "02/05/2003",
-                telefone = "(11) 95566-7788",
-                email = "marcos.leonardo@gmail.com",
-                endereco = enderecoPadrao,
-                genero = GeneroCliente.Masculino,
-                nomeSocial = "",
-                etnia = EtniaCliente.Pardo,
-                estrangeiro = false,
-                tipo = TipoCliente.PJ
-            };
-            clientes.Add(cliente2);
-
-            Cliente cliente3 = new Cliente()
-            {
-                id = 03,
-                nome = "Tiquinho Soares",
-                dataNascimento = "17/01/1991",
-                telefone = "(11) 91133-5577",
-                email = "tiquinho.soares@gmail.com",
-                endereco = enderecoPadrao,
-                genero = GeneroCliente.Masculino,
-                nomeSocial = "",
-                etnia = EtniaCliente.Pardo,
-                estrangeiro = false,
-                tipo = TipoCliente.PJ
-            };
-            clientes.Add(cliente3);
-
             InitializeComponent();
-
-            BindingSource.DataSource = clientes;
-            dataGridViewClientes.DataSource = BindingSource;
         }
 
-        public int NovoId()
+        /*public int NovoId()
         {
-            int id = clientes[clientes.Count - 1].id;
+            int id = clientes[clientes.Count - 1].Id;
             int idNovo = id + 1;
 
             return idNovo;
-        }
+        }*/
 
         public string ValidarTipoCliente()
         {
             if (radio_tipo_pf.Checked == false && radio_tipo_pj.Checked == false)
             {
-                return label_erro.Text = "Selecione um tipo de cliente.";
+                return label_erro.Text = "Selecione um Tipo de cliente.";
             }
 
             if (radio_tipo_pf.Checked == true)
             {
-                /*label_erro.Text =*/ tipo = TipoCliente.PF;
+                /*label_erro.Text =*/
+                tipo = TipoCliente.PF;
             }
 
             if (radio_tipo_pj.Checked == true)
             {
-                /*label_erro.Text =*/ tipo = TipoCliente.PJ;
+                /*label_erro.Text =*/
+                tipo = TipoCliente.PJ;
             }
 
             return label_erro.Text = "";
@@ -123,7 +66,7 @@ namespace cadastroCliente
 
             if (!input_nome.Text.Any(char.IsWhiteSpace))
             {
-                return label_erro.Text = "O campo 'Nome completo' possui apenas um nome.";
+                return label_erro.Text = "O campo 'Nome completo' possui apenas um Nome.";
             }
 
             return label_erro.Text = "";
@@ -161,9 +104,9 @@ namespace cadastroCliente
                 return label_erro.Text = "O campo 'Telefone' deve conter um número de celular.";
             }
 
-            if (clientes.Any(cliente => cliente.telefone == input_telefone.Text))
+            if (Clientes.Any(cliente => cliente.Telefone == input_telefone.Text))
             {
-                return label_erro.Text = "O campo 'Telefone' contém um telefone já cadastrado.";
+                return label_erro.Text = "O campo 'Telefone' contém um Telefone já cadastrado.";
             }
 
             return label_erro.Text = "";
@@ -178,12 +121,12 @@ namespace cadastroCliente
 
             if (!(input_email.Text.Contains('@')) || !(input_email.Text.Contains(".com")) || !(input_email.Text.Length > 8))
             {
-                return label_erro.Text = "O campo 'Email' deve conter um email válido.";
+                return label_erro.Text = "O campo 'Email' deve conter um Email válido.";
             }
 
-            if (clientes.Any(cliente => cliente.email == input_email.Text))
+            if (Clientes.Any(cliente => cliente.Email == input_email.Text))
             {
-                return label_erro.Text = "O campo 'Email' contém um email já cadastrado.";
+                return label_erro.Text = "O campo 'Email' contém um Email já cadastrado.";
             }
 
             return label_erro.Text = "";
@@ -217,7 +160,7 @@ namespace cadastroCliente
 
                 if (!input_nome_social.Text.Any(char.IsWhiteSpace))
                 {
-                    return label_erro.Text = "O campo 'Nome social' deve conter mais de um nome.";
+                    return label_erro.Text = "O campo 'Nome social' deve conter mais de um Nome.";
                 }
             }
 
@@ -304,7 +247,7 @@ namespace cadastroCliente
 
         public string ValidarBairro()
         {
-            var tiposBairro = new List<string>{ "bairro", "vila", "condomínio", "parque", 
+            var tiposBairro = new List<string>{ "Bairro", "vila", "condomínio", "parque",
                 "loteamento", "centro", "subúrbio" };
 
             if (string.IsNullOrEmpty(input_bairro.Text) || string.IsNullOrWhiteSpace(input_bairro.Text))
@@ -315,7 +258,7 @@ namespace cadastroCliente
             if (!(tiposBairro.Any(tipo => input_bairro.Text.ToLower().Contains(tipo))) || !input_bairro.Text.Any(char.IsWhiteSpace) ||
                 !(input_bairro.Text.Length > 8))
             {
-                return label_erro.Text = "O campo 'Bairro' deve conter um bairro válido.";
+                return label_erro.Text = "O campo 'Bairro' deve conter um Bairro válido.";
             }
 
             return label_erro.Text = "";
@@ -338,10 +281,10 @@ namespace cadastroCliente
 
         public string ValidarEstado()
         {
-            var estados = new List<string> { "AC - Acre", "AL - Alagoas", "AP - Amapá", "AM - Amazonas", "BA - Bahia", 
-                "CE - Ceará", "DF - Distrito Federal", "ES - Espírito Santo", "GO - Goiás", "MA - Maranhão", "MT - Mato Grosso", 
-                "MS - Mato Grosso do Sul", "MG - Minas Gerais", "PA - Pará", "PB - Paraíba", "PR - Paraná", "PE - Pernambuco", 
-                "PI - Piauí", "RJ - Rio de Janeiro", "RN - Rio Grande do Norte", "RS - Rio Grande do Sul", "RO - Rondônia", 
+            var estados = new List<string> { "AC - Acre", "AL - Alagoas", "AP - Amapá", "AM - Amazonas", "BA - Bahia",
+                "CE - Ceará", "DF - Distrito Federal", "ES - Espírito Santo", "GO - Goiás", "MA - Maranhão", "MT - Mato Grosso",
+                "MS - Mato Grosso do Sul", "MG - Minas Gerais", "PA - Pará", "PB - Paraíba", "PR - Paraná", "PE - Pernambuco",
+                "PI - Piauí", "RJ - Rio de Janeiro", "RN - Rio Grande do Norte", "RS - Rio Grande do Sul", "RO - Rondônia",
                 "RR - Roraima", "SC - Santa Catarina", "SP - São Paulo", "SE - Sergipe", "TO - Tocantins"};
 
             if (string.IsNullOrEmpty(combo_estado.Text) || string.IsNullOrWhiteSpace(combo_estado.Text))
@@ -351,7 +294,7 @@ namespace cadastroCliente
 
             if (!(estados.Any(estado => combo_estado.Text.Contains(estado))))
             {
-                return label_erro.Text = "O campo 'Estado' deve conter um estado válido.";
+                return label_erro.Text = "O campo 'Estado' deve conter um Estado válido.";
             }
 
             return label_erro.Text = "";
@@ -372,6 +315,16 @@ namespace cadastroCliente
             }
 
             return label_erro.Text = "";
+        }
+
+        private void FormListaClientes_Load(object sender, EventArgs e)
+        {
+            label_erro.Text = "";
+
+            Enum.GetNames(typeof(EtniaCliente)).ToList().ForEach(etnia => combo_etnia.Items.Add(etnia));
+
+            BindingSource.DataSource = Cliente.ListarClientes();
+            dataGridViewClientes.DataSource = BindingSource;
         }
 
         private void button_cadastrar_Click(object sender, EventArgs e)
@@ -488,33 +441,36 @@ namespace cadastroCliente
                 return;
             }
 
-            Cliente clienteNovo = new Cliente
+            DateTime.TryParse(input_telefone.Text, out DateTime dataNascimento);
+
+            EnderecoCliente novoEndereco = new()
             {
-                id = NovoId(),
-                nome = input_nome.Text,
-                dataNascimento = input_data_nasc.Text,
-                telefone = input_telefone.Text,
-                email = input_email.Text,
-                endereco = new EnderecoCliente
-                {
-                    logradouro = input_logradouro.Text,
-                    numero = input_numero.Text,
-                    complemento = input_complemento.Text,
-                    bairro = input_bairro.Text,
-                    municipio = input_municipio.Text,
-                    estado = combo_estado.Text,
-                    cep = input_cep.Text
-                },
-                genero = (GeneroCliente)Enum.Parse(typeof(GeneroCliente), combo_genero.Text),
-                nomeSocial = input_nome_social.Text,
-                etnia = (EtniaCliente)Enum.Parse(typeof(EtniaCliente), combo_etnia.Text),
-                estrangeiro = check_estrangeiro.Checked,
-                tipo = tipo
+                Logradouro = input_logradouro.Text,
+                Numero = input_numero.Text,
+                Bairro = input_bairro.Text,
+                CEP = input_cep.Text.Replace("-", ""),
+                Municipio = input_municipio.Text,
+                Estado = combo_estado.Text,
+                Complemento = input_complemento.Text,
             };
 
-            clientes.Add(clienteNovo);
+            Cliente novoCliente = new()
+            {
+                Nome = input_nome.Text,
+                NomeSocial = input_nome_social.Text,
+                DataNascimento = dataNascimento,
+                Email = input_email.Text,
+                Telefone = input_telefone.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", ""),
+                Etnia = (EtniaCliente)combo_etnia.SelectedIndex,
+                Genero = (GeneroCliente)combo_genero.SelectedIndex,
+                Tipo = radio_tipo_pf.Checked ? TipoCliente.PF : TipoCliente.PJ,
+                Estrangeiro = check_estrangeiro.Checked,
+                Endereco = novoEndereco
+            };
+
+            Clientes.Add(clienteNovo);
             BindingSource.ResetBindings(false);
-            label_erro.Text = $"{clienteNovo.id}° cliente cadastrado com sucesso.";
+            label_erro.Text = $"{clienteNovo.Id}° cliente cadastrado com sucesso.";
         }
     }
 }

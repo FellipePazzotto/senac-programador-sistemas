@@ -8,7 +8,6 @@ C:\repositorios\senac-programador-sistemas\login\obj\Debug\net8.0-windows\login.
 C:\repositorios\senac-programador-sistemas\login\obj\Debug\net8.0-windows\login.AssemblyInfoInputs.cache
 C:\repositorios\senac-programador-sistemas\login\obj\Debug\net8.0-windows\login.AssemblyInfo.cs
 C:\repositorios\senac-programador-sistemas\login\obj\Debug\net8.0-windows\login.csproj.CoreCompileInputs.cache
-C:\repositorios\senac-programador-sistemas\login\obj\Debug\net8.0-windows\login.sourcelink.json
 C:\repositorios\senac-programador-sistemas\login\obj\Debug\net8.0-windows\login.dll
 C:\repositorios\senac-programador-sistemas\login\obj\Debug\net8.0-windows\refint\login.dll
 C:\repositorios\senac-programador-sistemas\login\obj\Debug\net8.0-windows\login.pdb

@@ -1,5 +1,5 @@
-CREATE DATABASE senac;
-USE senac;
+CREATE DATABASE db_senac;
+USE db_senac;
 
 CREATE TABLE IF NOT EXISTS usuario (
 	id INT AUTO_INCREMENT,

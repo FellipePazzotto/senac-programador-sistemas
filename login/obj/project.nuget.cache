@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "awxVGHnlNE4=",
+  "dgSpecHash": "i5W8AX9B3RI=",
   "success": true,
-  "projectFilePath": "C:\\repositorios\\senac-programador-sistemas\\login\\login.csproj",
+  "projectFilePath": "C:\\repositorios\\senac-programador-sistemas\\Login\\login.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fellipe.cpazzotto\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\fellipe.cpazzotto\\.nuget\\packages\\google.protobuf\\3.26.1\\google.protobuf.3.26.1.nupkg.sha512",

@@ -139,7 +139,7 @@
             check_estrangeiro.Name = "check_estrangeiro";
             check_estrangeiro.Size = new Size(199, 25);
             check_estrangeiro.TabIndex = 7;
-            check_estrangeiro.Text = "O cliente é estrangeiro??";
+            check_estrangeiro.Text = "O cliente é Estrangeiro??";
             check_estrangeiro.UseVisualStyleBackColor = true;
             // 
             // radio_tipo_pf
@@ -489,6 +489,7 @@
             ForeColor = SystemColors.ControlText;
             Name = "Main";
             Text = "Cadastro de clientes";
+            Load += FormListaClientes_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();

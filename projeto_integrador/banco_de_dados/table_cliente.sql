@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS cliente(
+	id INT AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    telefone INT(11) NOT NULL UNIQUE,
+    
+    PRIMARY KEY(id)
+);

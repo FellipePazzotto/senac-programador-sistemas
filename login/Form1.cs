@@ -4,7 +4,7 @@ namespace login
 {
     public partial class form_login : Form
     {
-        private static readonly string ConnectionString = "datasource=localhost;username=root;password=;database=senac";
+        private static readonly string ConnectionString = "datasource=localhost;username=root;password=;database=db_senac";
         private MySqlConnection Connection = new MySqlConnection(ConnectionString);
 
         public form_login()

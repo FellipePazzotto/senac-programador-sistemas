@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\repositorios\\senac-programador-sistemas\\login\\login.csproj": {}
+    "C:\\repositorios\\senac-programador-sistemas\\Login\\login.csproj": {}
   },
   "projects": {
-    "C:\\repositorios\\senac-programador-sistemas\\login\\login.csproj": {
+    "C:\\repositorios\\senac-programador-sistemas\\Login\\login.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\repositorios\\senac-programador-sistemas\\login\\login.csproj",
+        "projectUniqueName": "C:\\repositorios\\senac-programador-sistemas\\Login\\login.csproj",
         "projectName": "login",
-        "projectPath": "C:\\repositorios\\senac-programador-sistemas\\login\\login.csproj",
+        "projectPath": "C:\\repositorios\\senac-programador-sistemas\\Login\\login.csproj",
         "packagesPath": "C:\\Users\\fellipe.cpazzotto\\.nuget\\packages\\",
-        "outputPath": "C:\\repositorios\\senac-programador-sistemas\\login\\obj\\",
+        "outputPath": "C:\\repositorios\\senac-programador-sistemas\\Login\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
