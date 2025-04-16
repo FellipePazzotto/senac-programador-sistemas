@@ -1,17 +1,12 @@
 ﻿using ListaAtividades.banco_de_dados;
 using ListaAtividades.dominio;
 using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ListaAtividades.repositorio
 {
     internal class AtividadeRepositorio
     {
-        public void Criar (string titulo)
+        public void Criar(string titulo)
         {
             using (var con = Database.GetConnection())
             {
@@ -47,7 +42,7 @@ namespace ListaAtividades.repositorio
             using (var con = Database.GetConnection())
             {
                 con.Open();
-                string query = $"SELECT * FROM atividade WHERE situacao = {Situacao.Realizando};";
+                string query = $"SELECT * FROM atividade WHERE situacao = {(int) Situacao.Realizando};";
 
                 using (var cmd = new MySqlCommand(query, con))
                 {
@@ -64,7 +59,7 @@ namespace ListaAtividades.repositorio
                         }
                     }
                 }
-                
+
                 return new Atividade();
             }
         }
@@ -76,9 +71,9 @@ namespace ListaAtividades.repositorio
             using (var conn = Database.GetConnection())
             {
                 conn.Open();
-                string query = $"SELECT * FROM atividade WHERE situacao = {Situacao.Pendente};";
+                string query = $"SELECT * FROM atividade WHERE situacao = {(int) Situacao.Pendente};";
 
-                using (var cmd = new MySqlCommand (query, conn))
+                using (var cmd = new MySqlCommand(query, conn))
                 {
                     using (var reader = cmd.ExecuteReader())
                     {
@@ -88,7 +83,7 @@ namespace ListaAtividades.repositorio
                             {
                                 Id = reader.GetInt32("id"),
                                 Titulo = reader.GetString("titulo"),
-                                Situacao = (Situacao) reader.GetInt32("situacao")
+                                Situacao = (Situacao)reader.GetInt32("situacao")
                             });
                         }
                     }
