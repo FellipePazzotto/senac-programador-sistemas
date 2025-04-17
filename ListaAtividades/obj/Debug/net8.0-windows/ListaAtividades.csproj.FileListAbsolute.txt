@@ -33,3 +33,4 @@ C:\repositorios\senac-programador-sistemas\ListaAtividades\obj\Debug\net8.0-wind
 C:\repositorios\senac-programador-sistemas\ListaAtividades\obj\Debug\net8.0-windows\ListaAtividades.pdb
 C:\repositorios\senac-programador-sistemas\ListaAtividades\obj\Debug\net8.0-windows\ListaAtividades.genruntimeconfig.cache
 C:\repositorios\senac-programador-sistemas\ListaAtividades\obj\Debug\net8.0-windows\ref\ListaAtividades.dll
+C:\repositorios\senac-programador-sistemas\ListaAtividades\obj\Debug\net8.0-windows\ListaAtividades.CriarAtividade.resources

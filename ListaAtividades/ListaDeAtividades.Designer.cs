@@ -33,6 +33,7 @@
             dataGridViewAtividades = new DataGridView();
             buttonAtualizar = new Button();
             buttonCriar = new Button();
+            labelErro = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewAtividades).BeginInit();
             SuspendLayout();
             // 
@@ -53,38 +54,58 @@
             buttonFinalizar.TabIndex = 1;
             buttonFinalizar.Text = "Finalizar";
             buttonFinalizar.UseVisualStyleBackColor = true;
+            buttonFinalizar.Click += buttonFinalizar_Click;
             // 
             // dataGridViewAtividades
             // 
+            dataGridViewAtividades.AllowUserToAddRows = false;
+            dataGridViewAtividades.AllowUserToDeleteRows = false;
+            dataGridViewAtividades.AllowUserToResizeColumns = false;
+            dataGridViewAtividades.AllowUserToResizeRows = false;
             dataGridViewAtividades.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewAtividades.Location = new Point(20, 65);
+            dataGridViewAtividades.Location = new Point(20, 80);
+            dataGridViewAtividades.MultiSelect = false;
             dataGridViewAtividades.Name = "dataGridViewAtividades";
+            dataGridViewAtividades.ReadOnly = true;
             dataGridViewAtividades.Size = new Size(500, 325);
             dataGridViewAtividades.TabIndex = 2;
             // 
             // buttonAtualizar
             // 
-            buttonAtualizar.Location = new Point(540, 65);
+            buttonAtualizar.Location = new Point(540, 80);
             buttonAtualizar.Name = "buttonAtualizar";
             buttonAtualizar.Size = new Size(90, 30);
             buttonAtualizar.TabIndex = 3;
             buttonAtualizar.Text = "Atualizar";
             buttonAtualizar.UseVisualStyleBackColor = true;
+            buttonAtualizar.Click += buttonAtualizar_Click;
             // 
             // buttonCriar
             // 
-            buttonCriar.Location = new Point(540, 360);
+            buttonCriar.Location = new Point(540, 375);
             buttonCriar.Name = "buttonCriar";
             buttonCriar.Size = new Size(90, 30);
             buttonCriar.TabIndex = 4;
             buttonCriar.Text = "Criar";
             buttonCriar.UseVisualStyleBackColor = true;
+            buttonCriar.Click += buttonCriar_Click;
+            // 
+            // labelErro
+            // 
+            labelErro.AutoSize = true;
+            labelErro.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelErro.Location = new Point(20, 50);
+            labelErro.Name = "labelErro";
+            labelErro.Size = new Size(17, 17);
+            labelErro.TabIndex = 5;
+            labelErro.Text = "...";
             // 
             // ListaDeAtividades
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(644, 411);
+            ClientSize = new Size(644, 421);
+            Controls.Add(labelErro);
             Controls.Add(buttonCriar);
             Controls.Add(buttonAtualizar);
             Controls.Add(dataGridViewAtividades);
@@ -105,5 +126,6 @@
         private DataGridView dataGridViewAtividades;
         private Button buttonAtualizar;
         private Button buttonCriar;
+        private Label labelErro;
     }
 }
